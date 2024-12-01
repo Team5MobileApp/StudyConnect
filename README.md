@@ -114,13 +114,21 @@ Study Connect is an app designed to connect students to others with similar stud
 
 
 ## Issue cards
+This Sprint
+<img width="1436" alt="Screenshot 2024-12-01 at 1 47 31 AM" src="https://github.com/user-attachments/assets/4356c1b3-d414-48a0-8173-e49becc080c8">
 
-- [Add screenshot of your Project Board with the issues that you've been working on for this unit's milestone] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-- [Add screenshot of your Project Board with the issues that you're working on in the **NEXT sprint**. It should include issues for next unit with assigned owners.] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+Next Sprint
+<img width="1436" alt="Screenshot 2024-12-01 at 1 47 20 AM" src="https://github.com/user-attachments/assets/514a5dc7-edb1-4817-b0a5-0a1da6025848">
+
 
 ## Issues worked on this sprint
 
 - List the issues you completed this sprint
+- Create login screen
+- Create questionaire form
+- Create registration screen
+- Create Study group creation screens
+
 - [Add giphy that shows current build progress for Milestone 2. Note: We will be looking for progression of work between Milestone 2 and 3. Make sure your giphys are not duplicated and clearly show the change from Sprint 1 to 2.]
 
 <br>
