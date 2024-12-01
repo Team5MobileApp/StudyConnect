@@ -108,8 +108,10 @@ Study Connect is an app designed to connect students to others with similar stud
 # Milestone 2 - Build Sprint 1 (Unit 8)
 
 ## GitHub Project board
-<img width="1436" alt="Screenshot 2024-12-01 at 1 28 15 AM" src="https://github.com/user-attachments/assets/087635f6-f387-4c9b-94b6-ceeb99572dd4">
-<img width="1436" alt="Screenshot 2024-12-01 at 1 29 49 AM" src="https://github.com/user-attachments/assets/3ca38742-4a19-42af-9e2c-da3957de1942">
+<img width="1436" alt="Screenshot 2024-12-01 at 1 33 59 AM" src="https://github.com/user-attachments/assets/fd533710-314f-4dc5-8966-c12539308f4a">
+<img width="1436" alt="Screenshot 2024-12-01 at 1 34 19 AM" src="https://github.com/user-attachments/assets/d69d9a99-8069-44d8-909d-eedaa63ba2a0">
+<img width="1436" alt="Screenshot 2024-12-01 at 1 36 51 AM" src="https://github.com/user-attachments/assets/50a2ea56-1f9e-4663-9edb-0cd2c3c69224">
+
 
 ## Issue cards
 
