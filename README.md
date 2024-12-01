@@ -123,7 +123,6 @@ Next Sprint
 
 ## Issues worked on this sprint
 
-- List the issues you completed this sprint
 - Create login screen
 - Create questionaire form
 - Create registration screen
