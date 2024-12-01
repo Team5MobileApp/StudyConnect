@@ -49,7 +49,6 @@ Study Connect is an app designed to connect students to others with similar stud
 
 - Dashboard Screen
   - Story: As a user, I want to see a list of available study groups and study partners based on my courses and preferences, so I can easily find peers to collaborate with.
-  - Story: As a user, I want to see notifications about new messages, group updates, and session invites, so I can stay informed about my study activities.
   
 - Study Group Search Screen
   - Story: As a user, I want to search for study groups based on the courses I’m enrolled in, so I can find relevant groups to join.
@@ -109,10 +108,8 @@ Study Connect is an app designed to connect students to others with similar stud
 # Milestone 2 - Build Sprint 1 (Unit 8)
 
 ## GitHub Project board
-
-[Add screenshot of your Project Board with three milestones visible in
-this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img width="1436" alt="Screenshot 2024-12-01 at 1 28 15 AM" src="https://github.com/user-attachments/assets/087635f6-f387-4c9b-94b6-ceeb99572dd4">
+<img width="1436" alt="Screenshot 2024-12-01 at 1 29 49 AM" src="https://github.com/user-attachments/assets/3ca38742-4a19-42af-9e2c-da3957de1942">
 
 ## Issue cards
 
