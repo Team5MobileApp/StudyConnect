@@ -44,12 +44,6 @@ class MainActivity : AppCompatActivity() {
         // Call helper method to swap the FrameLayout with the fragment
         replaceFragment(ProfileFragment())
 
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
     }
     // func to swap fragment
     private fun replaceFragment(profileFragment: ProfileFragment) {
