@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         val loginFragment = LoginFragment() // Assuming LoginFragment is already defined
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main, loginFragment)
+            .replace(R.id.frame_layout, loginFragment)
             .commit()
     }
 

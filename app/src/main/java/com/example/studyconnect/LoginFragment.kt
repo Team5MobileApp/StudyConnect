@@ -6,11 +6,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+
+private lateinit var auth: FirebaseAuth
+
 
 /**
  * A simple [Fragment] subclass.
@@ -21,6 +21,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialize FirebaseAuth
+        auth = FirebaseAuth.getInstance()
+
         val loginButton = view.findViewById<Button>(R.id.loginButton)
         val signupButton = view.findViewById<Button>(R.id.signupButton)
 
@@ -29,11 +32,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             val password = view.findViewById<EditText>(R.id.passwordET).text.toString()
 
             // Perform login validation here
-            if (performLogin(username, password)) {
-                // Navigate to Main Fragment if login is successful
-                navigateToMainFragment()
+            // Perform login using Firebase authentication
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                performLogin(username, password)
             } else {
-                Toast.makeText(context, "Login failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Please enter username and password", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -43,9 +46,18 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
     }
 
-    private fun performLogin(username: String, password: String): Boolean {
-        // Add your authentication logic here (e.g., checking username/password)
-        return username == "user" && password == "password"  // Example validation
+    private fun performLogin(email: String, password: String) {
+        // Sign in using Firebase Authentication
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    // If login is successful, navigate to Main Fragment
+                    navigateToMainFragment()
+                } else {
+                    // If login fails, show error message
+                    Toast.makeText(context, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     private fun navigateToMainFragment() {
@@ -57,7 +69,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         // Switch to the Sign Up fragment
         val signupFragment = SignupFragment()
         parentFragmentManager.beginTransaction()
-            .replace(R.id.main, signupFragment)
+            .replace(R.id.frame_layout, signupFragment)
             .addToBackStack(null)  // Allow users to navigate back to login
             .commit()
     }
