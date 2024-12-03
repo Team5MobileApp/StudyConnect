@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -62,6 +63,8 @@ class StudyGroupCreationFormActivity : AppCompatActivity() {
             // Save the data using coroutine in background thread (Dispatchers.IO)
             lifecycleScope.launch {
                 saveStudyGroup(studyGroup)
+                Toast.makeText(this@StudyGroupCreationFormActivity, "Study group created!", Toast.LENGTH_SHORT).show()
+                finish()
             }
 
         }
