@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "980431145011",
+    "project_id": "studyconnect-153eb",
+    "storage_bucket": "studyconnect-153eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980431145011:android:e21a65686797e617117b46",
+        "android_client_info": {
+          "package_name": "com.example.studyconnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXjS6CBMVbTcUH4Zkp5zcSctaKURLyKys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
