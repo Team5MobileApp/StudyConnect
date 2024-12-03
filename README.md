@@ -115,7 +115,7 @@ Study Connect is an app designed to connect students to others with similar stud
 
 ## Issue cards
 This Sprint
-<img width="1436" alt="Screenshot 2024-12-01 at 1 47 31 AM" src="https://github.com/user-attachments/assets/4356c1b3-d414-48a0-8173-e49becc080c8">
+<img width="721" alt="Screenshot 2024-12-03 at 9 41 25 AM" src="https://github.com/user-attachments/assets/d4aac8be-3228-40a8-89dc-b3dc764c37b2">
 
 Next Sprint
 <img width="1436" alt="Screenshot 2024-12-01 at 1 47 20 AM" src="https://github.com/user-attachments/assets/514a5dc7-edb1-4817-b0a5-0a1da6025848">
@@ -127,8 +127,9 @@ Next Sprint
 - Create questionaire form
 - Create registration screen
 - Create Study group creation screens
-
-- [Add giphy that shows current build progress for Milestone 2. Note: We will be looking for progression of work between Milestone 2 and 3. Make sure your giphys are not duplicated and clearly show the change from Sprint 1 to 2.]
+- Created search screen
+- Created profile screen
+![Kapture 2024-12-03 at 09 36 38](https://github.com/user-attachments/assets/8deaff70-1b95-4972-a0af-187526eae232)
 
 <br>
 
@@ -141,6 +142,7 @@ Next Sprint
 ## Completed user stories
 
 - List the completed user stories from this unit
+  
 - List any pending user stories / any user stories you decided to cut
 from the original requirements
 
