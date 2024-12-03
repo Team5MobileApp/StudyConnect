@@ -21,6 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".StudyGroupCreationFormActivity">
+            <!-- You can add specific attributes here if needed -->
+        </activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/entries"
+            android:id="@+id/studyGroupRV"
             android:layout_width="match_parent"
             android:layout_height="651dp"
             android:layout_marginTop="2dp"
@@ -26,10 +26,22 @@
             android:layout_width="409dp"
             android:layout_height="78dp"
             android:layout_marginBottom="2dp"
-            app:layout_constraintBottom_toTopOf="@+id/entries"
+            app:layout_constraintBottom_toTopOf="@+id/studyGroupRV"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+        </SearchView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="215dp"
+            android:layout_height="67dp"
+            android:layout_weight="1"
+            android:text="Add Group +"
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="567dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

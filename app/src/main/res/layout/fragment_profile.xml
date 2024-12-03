@@ -10,12 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <EditText
             android:id="@+id/usernameET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="232dp"
-            android:text="Enter Name"
+            android:hint="Enter Name"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +122,7 @@
             android:layout_marginStart="100dp"
             android:ems="10"
             android:gravity="start|top"
-            android:hint="Enter classes."
+            android:hint="Enter classes separated by comma."
             android:inputType="textMultiLine"
             app:layout_constraintStart_toEndOf="@+id/classesTV"
             app:layout_constraintTop_toTopOf="@+id/classesTV" />

@@ -5,55 +5,91 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
+import android.widget.ArrayAdapter
+import android.widget.AdapterView
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var db: AppDatabase // Room database instance
+    private lateinit var userPreferencesDao: UserPreferencesDao // DAO instance
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val profileView = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        // Initialize Room database and DAO
+        db = AppDatabase.getInstance(requireContext()) // Access database
+        userPreferencesDao = db.userPreferencesDao()
+
+        // Get UI elements
+        val usernameET: EditText = profileView.findViewById(R.id.usernameET)
+        val learningSpinner: Spinner = profileView.findViewById(R.id.learningSpinner)
+        val timeSpinner: Spinner = profileView.findViewById(R.id.timeSpinner)
+        val hybridSpinner: Spinner = profileView.findViewById(R.id.hybridSpinner)
+        val classesML: EditText = profileView.findViewById(R.id.classesML)
+        val saveButton: Button = profileView.findViewById(R.id.saveButton)
+
+        val learningOptions = listOf("Visual", "Auditory", "Write/Read", "Kinesthetic")
+        val timeOptions = listOf("Morning", "Afternoon", "Evening")
+        val hybridOptions = listOf("In-person", "Hybrid", "Virtual")
+
+        // Set adapters for Spinners
+        learningSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, learningOptions)
+        timeSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, timeOptions)
+        hybridSpinner.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, hybridOptions)
+
+        // Set OnClickListener for Save Button
+        saveButton.setOnClickListener {
+            val username = usernameET.text.toString()
+            val learningType = learningSpinner.selectedItem.toString()
+            val timePreference = timeSpinner.selectedItem.toString()
+            val hybridPreference = hybridSpinner.selectedItem.toString()
+            val classesString = classesML.text.toString()
+
+            // Create a UserPreferences object
+            val userPreferences = UserPreferences(
+                username = username,
+                learningPreference = learningType,
+                timePreference = timePreference,
+                hybridPreference = hybridPreference,
+                classes = classesString
+            )
+
+            // Save the data using coroutine in background thread (Dispatchers.IO)
+            lifecycleScope.launch {
+                saveUserPreferences(userPreferences)
+            }
+
+            // Optional: Provide feedback to the user that the preferences were saved
+            Toast.makeText(requireContext(), "Preferences saved!", Toast.LENGTH_SHORT).show()
+        }
+
+        return profileView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    // Function to save user preferences asynchronously using CoroutineScope
+    private suspend fun saveUserPreferences(userPreferences: UserPreferences) {
+        // Insert userPreferences into Room database on IO thread
+        CoroutineScope(Dispatchers.IO).launch {
+            userPreferencesDao.insertUser(userPreferences)  // Insert data into database
+            requireActivity().runOnUiThread {
+                // Optionally update UI or notify user upon success
+                // For example: show a toast or navigate to another screen
             }
+        }
     }
 }

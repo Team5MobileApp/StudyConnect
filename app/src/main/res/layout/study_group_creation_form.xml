@@ -14,7 +14,7 @@
         android:layout_marginBottom="8dp" />
 
     <EditText
-        android:id="@+id/et_study_group_name"
+        android:id="@+id/groupNameET"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Enter study group name"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="8dp" />
 
     <EditText
-        android:id="@+id/et_subject_name"
+        android:id="@+id/subjectET"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Enter subject name"
