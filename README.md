@@ -124,12 +124,14 @@ Next Sprint
 
 ## Issues worked on this sprint
 
+Note that some screens were created but they are not yet implemented in the flow.
 - Create login screen
 - Create questionaire form
 - Create registration screen
 - Create Study group creation screens
 - Created search screen
 - Created profile screen
+<br>
 ![Kapture 2024-12-03 at 09 36 38](https://github.com/user-attachments/assets/8deaff70-1b95-4972-a0af-187526eae232)
 
 <br>
