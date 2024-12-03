@@ -6,11 +6,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // 1. Annotate your database class with @Database
-@Database(entities = [UserPreferences::class], version = 1)
+@Database(entities = [UserPreferences::class, StudyGroup::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     // 2. Define the DAOs you want to access in this database
     abstract fun userPreferencesDao(): UserPreferencesDao
+    abstract fun studyGroupDao(): StudyGroupDao
 
     // 3. Implement a singleton pattern for getting the database instance
     companion object {

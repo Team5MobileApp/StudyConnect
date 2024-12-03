@@ -20,8 +20,6 @@ class SearchFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_search, container, false)
-
-        // Find the "Add Group +" button
         val addGroupButton: Button = view.findViewById(R.id.button)
 
         // Set up OnClickListener for the button
