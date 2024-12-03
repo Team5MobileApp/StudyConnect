@@ -3,9 +3,7 @@ package com.example.studyconnect
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -24,7 +22,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
 
         val signupButton = view.findViewById<Button>(R.id.signupButton)
         signupButton.setOnClickListener {
-            val username = view.findViewById<EditText>(R.id.usernameET).text.toString()
+            val username = view.findViewById<EditText>(R.id.nameET).text.toString()
             val password = view.findViewById<EditText>(R.id.passwordET).text.toString()
 
             // Perform sign up logic here

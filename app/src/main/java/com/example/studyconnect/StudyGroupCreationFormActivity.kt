@@ -7,15 +7,20 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import kotlinx.coroutines.withContext
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import com.google.firebase.auth.FirebaseAuth
+
 
 class StudyGroupCreationFormActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase // Room database instance
     private lateinit var studyGroupDao: StudyGroupDao // DAO instance
+    private lateinit var userPreferencesDao: UserPreferencesDao // DAO instance
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +29,8 @@ class StudyGroupCreationFormActivity : AppCompatActivity() {
         // Initialize Room database and DAO
         db = AppDatabase.getInstance(this) // Access database
         studyGroupDao = db.studyGroupDao()
+        userPreferencesDao = db.userPreferencesDao()
+
 
         // Find your UI elements
         val groupNameET: EditText = findViewById(R.id.groupNameET)
@@ -71,13 +78,51 @@ class StudyGroupCreationFormActivity : AppCompatActivity() {
     }
 
     private suspend fun saveStudyGroup(studyGroup: StudyGroup) {
-        // Insert userPreferences into Room database on IO thread
-        CoroutineScope(Dispatchers.IO).launch {
-            studyGroupDao.insertUser(studyGroup)  // Insert data into database
-            this@StudyGroupCreationFormActivity.runOnUiThread {
-                // Optionally update UI or notify user upon success
-                // For example: show a toast or navigate to another screen
+        // Use Dispatchers.IO to offload the database operation to a background thread
+        withContext(Dispatchers.IO) {
+            // Insert the study group into the database
+            studyGroupDao.insertGroup(studyGroup)
+
+            // Get the email from SharedPreferences, Firebase, or Session (e.g., getUserEmail())
+            val email = getUserEmail() // Replace with your method to retrieve the email
+
+            if (email != null) {
+                // Retrieve user preferences by email (done off the main thread)
+                val userPreferences = userPreferencesDao.getUserPreferencesByEmail(email)
+
+                if (userPreferences != null) {
+                    // Append the new group ID to the existing groupIDs string
+                    val newGroupIds = if (userPreferences.groupIDs.isNullOrEmpty()) {
+                        studyGroup.id.toString()
+                    } else {
+                        "${userPreferences.groupIDs},${studyGroup.id}"
+                    }
+
+                    // Update the user preferences with the new groupID
+                    val updatedUserPreferences = userPreferences.copy(groupIDs = newGroupIds)
+
+                    // Save the updated user preferences back into the database
+                    userPreferencesDao.updateUser(updatedUserPreferences)
+                }
+
+                // Notify the UI thread (optional)
+                withContext(Dispatchers.Main) {
+                    // Show a success message or navigate to another screen
+                    Toast.makeText(this@StudyGroupCreationFormActivity, "Study group created and preferences updated!", Toast.LENGTH_SHORT).show()
+                    finish() // Close the activity
+                }
+            } else {
+                // Handle the case when email is not found or the user is not logged in
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@StudyGroupCreationFormActivity, "User not logged in", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
+    private fun getUserEmail(): String? {
+        return FirebaseAuth.getInstance().currentUser?.email
+    }
+
 }
+
+

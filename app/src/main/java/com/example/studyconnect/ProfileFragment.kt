@@ -7,17 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Spinner
 import android.widget.ArrayAdapter
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-
+import kotlinx.coroutines.withContext
 
 
 class ProfileFragment : Fragment() {
@@ -36,7 +34,7 @@ class ProfileFragment : Fragment() {
         userPreferencesDao = db.userPreferencesDao()
 
         // Get UI elements
-        val usernameET: EditText = profileView.findViewById(R.id.usernameET)
+        val nameET: EditText = profileView.findViewById(R.id.nameET)
         val learningSpinner: Spinner = profileView.findViewById(R.id.learningSpinner)
         val timeSpinner: Spinner = profileView.findViewById(R.id.timeSpinner)
         val hybridSpinner: Spinner = profileView.findViewById(R.id.hybridSpinner)
@@ -54,19 +52,26 @@ class ProfileFragment : Fragment() {
 
         // Set OnClickListener for Save Button
         saveButton.setOnClickListener {
-            val username = usernameET.text.toString()
+            val name = nameET.text.toString()
             val learningType = learningSpinner.selectedItem.toString()
             val timePreference = timeSpinner.selectedItem.toString()
             val hybridPreference = hybridSpinner.selectedItem.toString()
             val classesString = classesML.text.toString()
+            val email = getUserEmail()
+            if(email == null) {
+                // Handle the case when email is not found or the user is not logged in
+                    Toast.makeText(requireContext(), "User not logged in", Toast.LENGTH_SHORT).show()
+            }
 
             // Create a UserPreferences object
             val userPreferences = UserPreferences(
-                username = username,
+                email = email,
+                name = name,
                 learningPreference = learningType,
                 timePreference = timePreference,
                 hybridPreference = hybridPreference,
-                classes = classesString
+                classes = classesString,
+                groupIDs = null,
             )
 
             // Save the data using coroutine in background thread (Dispatchers.IO)
@@ -91,5 +96,9 @@ class ProfileFragment : Fragment() {
                 // For example: show a toast or navigate to another screen
             }
         }
+    }
+
+    private fun getUserEmail(): String? {
+        return FirebaseAuth.getInstance().currentUser?.email
     }
 }

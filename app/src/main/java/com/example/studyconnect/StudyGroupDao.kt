@@ -8,5 +8,5 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface StudyGroupDao {
     @Insert
-    fun insertUser(studyGroup: StudyGroup)
+    fun insertGroup(studyGroup: StudyGroup)
 }

@@ -28,7 +28,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val signupButton = view.findViewById<Button>(R.id.signupButton)
 
         loginButton.setOnClickListener {
-            val username = view.findViewById<EditText>(R.id.usernameET).text.toString()
+            val username = view.findViewById<EditText>(R.id.nameET).text.toString()
             val password = view.findViewById<EditText>(R.id.passwordET).text.toString()
 
             // Perform login validation here
