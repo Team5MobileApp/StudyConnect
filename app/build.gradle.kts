@@ -64,4 +64,8 @@ dependencies {
     annotationProcessor(libs.room.compiler)
     kapt(libs.room.compiler)
     implementation(libs.androidx.viewmodel)
+    implementation(libs.android.lifecycle)
+    implementation(libs.kotlin.coroutines)
+    implementation(libs.kotlin.coroutines.android)
+
 }

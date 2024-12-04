@@ -14,6 +14,8 @@ firebaseBom = "33.6.0"
 bumptechGlide = "4.13.2"
 roomVersion = "2.4.2"
 viewmodel = "2.6.1"
+coroutines = "1.7.3"
+lifecycleRuntime = "2.6.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +32,9 @@ room-runtime = {group = "androidx.room", name = "room-runtime", version.ref = "r
 room-ktx = {group = "androidx.room", name = "room-ktx", version.ref = "roomVersion"}
 room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "roomVersion"}
 androidx-viewmodel = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewmodel"}
+kotlin-coroutines = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref="coroutines"}
+kotlin-coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref="coroutines"}
+android-lifecycle = {group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref="lifecycleRuntime"}
 
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }

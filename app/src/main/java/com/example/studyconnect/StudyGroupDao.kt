@@ -9,4 +9,11 @@ import kotlinx.coroutines.flow.Flow
 interface StudyGroupDao {
     @Insert
     fun insertGroup(studyGroup: StudyGroup)
+
+    @Query("SELECT * FROM study_group WHERE id IN (:groupIDs)")
+    fun getStudyGroupsByGroupIDs(groupIDs: List<String>): Flow<List<StudyGroup>>
+
+    @Query("SELECT * FROM study_group")
+    fun getAllStudyGroups(): List<StudyGroup>
+
 }
