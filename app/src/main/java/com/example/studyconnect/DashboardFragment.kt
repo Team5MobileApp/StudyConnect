@@ -1,5 +1,6 @@
 package com.example.studyconnect
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,6 +41,25 @@ class DashboardFragment : Fragment() {
             val dividerItemDecoration = DividerItemDecoration(view.context, it.orientation)
             studyGroupRecyclerView.addItemDecoration(dividerItemDecoration)
         }
+
+        studyGroupAdapter.setOnItemClickListener(object : StudyGroupAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val selectedStudyGroup = studyGroups[position]
+
+                // Create an Intent to launch StudyGroupInterfaceActivity
+                val intent = Intent(requireContext(), StudyGroupInterfaceActivity::class.java)
+
+                // Put the study group name or any other data as an extra
+                intent.putExtra("groupName", selectedStudyGroup.groupName)
+                intent.putExtra("subject", selectedStudyGroup.subject)
+                intent.putExtra("time", selectedStudyGroup.time)
+                intent.putExtra("learningType", selectedStudyGroup.learningType)
+                intent.putExtra("hybrid", selectedStudyGroup.hybrid)
+
+                // Start the activity
+                startActivity(intent)
+            }
+        })
 
         // Launch the coroutine to fetch all study groups
         lifecycleScope.launch {

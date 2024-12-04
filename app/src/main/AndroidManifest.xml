@@ -25,6 +25,9 @@
         <activity android:name=".StudyGroupCreationFormActivity">
             <!-- You can add specific attributes here if needed -->
         </activity>
+        <activity android:name=".StudyGroupInterfaceActivity">
+            <!-- You can add specific attributes here if needed -->
+        </activity>
     </application>
 
 </manifest>
