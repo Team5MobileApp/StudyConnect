@@ -163,9 +163,9 @@ We had to take out the search functionality and the chat interface it there but 
 <br>
 
 ![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/13dfc1a0-bfc0-4836-af62-891b5bb84d99)
-
+![Kapture 2024-12-04 at 01 34 35](https://github.com/user-attachments/assets/655c5c21-70fa-480f-a958-96e14b24084c)
 
 ## App Demo Video
-![Kapture 2024-12-04 at 01 34 35](https://github.com/user-attachments/assets/655c5c21-70fa-480f-a958-96e14b24084c)
+<br>
 https://www.canva.com/design/DAGYP8jZrFM/gxGAIlK1BU46VZLXbsaPQQ/view?utm_content=DAGYP8jZrFM&utm_campaign=designshare&utm_medium=link&utm_source=recording_view
 
