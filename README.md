@@ -139,18 +139,27 @@ Note that some screens were created but they are not yet implemented in the flow
 # Milestone 3 - Build Sprint 2 (Unit 9)
 
 ## GitHub Project board
+<img width="1108" alt="Screenshot 2024-12-03 at 8 29 02 PM" src="https://github.com/user-attachments/assets/35e58d52-e0a0-4896-bd6e-c1dbf83e6d8a">
 
-[Add screenshot of your Project Board with the updated status of issues for Milestone 3. Note that these should include the updated issues you worked on for this sprint and not be a duplicate of Milestone 2 Project board.] <img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
 
 ## Completed user stories
 
 - List the completed user stories from this unit
+  - Story: As a new user, I want to create a unique account, so I can start connecting with other students for study purposes.
+  - Story: As a returning user, I want to sign into my existing account, so I can access my study groups and other features.
+  - Story: As a user, I want to set up my profile, including my name, courses, and study preferences, so other students can know my study interests and availability.
+  - Story: As a user, I want to edit my profile, so I can update my study preferences or personal information as needed.
+  - Story: As a user, I want to create a new study group for a specific class or subject, so I can collaborate with others.
+  - Story: As a user, I want to fill out a questionnaire with my study preferences (e.g., study hours, learning styles, goals), so I can match with study groups or peers who have similar needs.
+  - Story: As a user, I want to update my study preferences as my schedule or study habits change, so I can stay aligned with my study goals.
+
   
 - List any pending user stories / any user stories you decided to cut
 from the original requirements
 
-[Add video/gif of your current application that shows build progress]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+The questionaire was not necessarily cut, but implemented into the profile screen. Instead of pullign a questionaire up there is a profile screen with sections on it that allows for the user's preferences to change as needed.
+![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/13dfc1a0-bfc0-4836-af62-891b5bb84d99)
+
 
 ## App Demo Video
 
