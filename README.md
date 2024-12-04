@@ -166,5 +166,5 @@ We had to take out the search functionality and the chat interface it there but 
 
 
 ## App Demo Video
-![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/97350820-e262-43a6-86b3-a73f5f56de28)
+![Kapture 2024-12-04 at 01 34 35](https://github.com/user-attachments/assets/655c5c21-70fa-480f-a958-96e14b24084c)
 
