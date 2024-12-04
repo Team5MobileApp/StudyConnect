@@ -59,7 +59,7 @@ Study Connect is an app designed to connect students to others with similar stud
   - Story: As a user, I want to join an existing study group, so I can connect with other students working on the same material.
 
 - Study Group Interface/Chat Screen
-  - Story: As a user, I want an interface with all info about my stufy group. I also want to send and receive messages with my study group members or individual students, so I can discuss study topics and plan sessions.
+  - Story: As a user, I want an interface with all info about my study group. I also want to send and receive messages with my study group members or individual students, so I can discuss study topics and plan sessions.
   - Story: As a user, I want to share files, notes, or links within the chat, so I can collaborate effectively with my study group.
 
 - User Questionnaire/Study Preference Screen
@@ -152,17 +152,19 @@ Note that some screens were created but they are not yet implemented in the flow
   - Story: As a user, I want to create a new study group for a specific class or subject, so I can collaborate with others.
   - Story: As a user, I want to fill out a questionnaire with my study preferences (e.g., study hours, learning styles, goals), so I can match with study groups or peers who have similar needs.
   - Story: As a user, I want to update my study preferences as my schedule or study habits change, so I can stay aligned with my study goals.
+  - Story: As a user, I want to see a list of available study groups and study partners based on my courses and preferences, so I can easily find peers to collaborate with.
 
   
 - List any pending user stories / any user stories you decided to cut
 from the original requirements
 
 The questionaire was not necessarily cut, but implemented into the profile screen. Instead of pullign a questionaire up there is a profile screen with sections on it that allows for the user's preferences to change as needed.
+We had to take out the search functionality and the chat interface it there but it's not fully functioning, both because of time constraints.
 <br>
 
 ![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/13dfc1a0-bfc0-4836-af62-891b5bb84d99)
 
 
 ## App Demo Video
+![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/97350820-e262-43a6-86b3-a73f5f56de28)
 
-- Embed the YouTube/Vimeo link of your Completed Demo Day prep video
