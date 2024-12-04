@@ -158,6 +158,8 @@ Note that some screens were created but they are not yet implemented in the flow
 from the original requirements
 
 The questionaire was not necessarily cut, but implemented into the profile screen. Instead of pullign a questionaire up there is a profile screen with sections on it that allows for the user's preferences to change as needed.
+<br>
+
 ![Kapture 2024-12-03 at 20 36 23](https://github.com/user-attachments/assets/13dfc1a0-bfc0-4836-af62-891b5bb84d99)
 
 
